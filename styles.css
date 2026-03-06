@@ -1,0 +1,446 @@
+/* ============================================================
+   Hydration Tracker — styles.css
+   ============================================================ */
+
+.ht-app {
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+/* ── Dashboard ── */
+.ht-dashboard {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 16px;
+	height: 100%;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+
+/* ── Date nav ── */
+.ht-date-nav {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.ht-date-label {
+	font-weight: 600;
+	font-size: 15px;
+	min-width: 90px;
+	text-align: center;
+}
+
+/* ── Cards ── */
+.ht-cards {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+.ht-card {
+	flex: 1;
+	min-width: 130px;
+	background: var(--background-secondary);
+	border-radius: 10px;
+	padding: 12px 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.ht-card-label {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--text-muted);
+}
+.ht-card-value {
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--text-normal);
+}
+.ht-card-pct {
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+/* ── Progress bars ── */
+.ht-progress-bar {
+	height: 6px;
+	border-radius: 3px;
+	background: var(--background-modifier-border);
+	overflow: hidden;
+}
+.ht-progress-fill {
+	height: 100%;
+	border-radius: 3px;
+	background: var(--interactive-accent);
+	transition: width 0.3s ease;
+}
+.ht-progress-fill.ht-progress-complete {
+	background: #22c55e;
+}
+.ht-progress-fill.ht-progress-caffeine {
+	background: #f59e0b;
+}
+.ht-progress-fill.ht-progress-over {
+	background: #ef4444;
+}
+
+/* ── Actions ── */
+.ht-actions {
+	display: flex;
+	gap: 8px;
+}
+
+/* ── Entry list ── */
+.ht-entries {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.ht-entry-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: var(--background-secondary);
+	border-radius: 8px;
+	padding: 8px 12px;
+}
+.ht-entry-icon {
+	font-size: 18px;
+	line-height: 1;
+}
+.ht-entry-info {
+	flex: 1;
+	min-width: 0;
+}
+.ht-entry-name {
+	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.ht-entry-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px;
+	font-size: 11px;
+	color: var(--text-muted);
+	margin-top: 2px;
+}
+.ht-entry-time {
+	font-size: 11px;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+/* ── Tags ── */
+.ht-tag {
+	display: inline-block;
+	border-radius: 4px;
+	padding: 1px 5px;
+	font-size: 10px;
+	font-weight: 600;
+}
+.ht-tag-caffeine { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.ht-tag-sugar    { background: rgba(236,72,153,0.12); color: #ec4899; }
+.ht-tag-hydrate  { background: rgba(34,197,94,0.12);  color: #22c55e; }
+.ht-tag-dehydrate{ background: rgba(239,68,68,0.12);  color: #ef4444; }
+
+/* ── Buttons ── */
+.ht-btn-primary {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border: none;
+	border-radius: 6px;
+	padding: 7px 14px;
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 600;
+}
+.ht-btn-primary:hover { filter: brightness(1.1); }
+.ht-btn-primary:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+.ht-btn-secondary {
+	background: var(--background-modifier-border);
+	color: var(--text-normal);
+	border: none;
+	border-radius: 6px;
+	padding: 7px 14px;
+	cursor: pointer;
+	font-size: 13px;
+}
+.ht-btn-secondary:hover { background: var(--background-modifier-border-hover); }
+
+.ht-btn-sm {
+	background: var(--background-modifier-border);
+	color: var(--text-normal);
+	border: none;
+	border-radius: 5px;
+	padding: 4px 10px;
+	cursor: pointer;
+	font-size: 12px;
+}
+.ht-btn-sm:hover { background: var(--background-modifier-border-hover); }
+
+.ht-btn-icon {
+	background: none;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 5px;
+	padding: 4px 8px;
+	cursor: pointer;
+	color: var(--text-normal);
+	font-size: 16px;
+	line-height: 1;
+}
+.ht-btn-icon:hover { background: var(--background-modifier-border); }
+
+.ht-btn-delete {
+	background: none;
+	border: none;
+	color: var(--text-muted);
+	cursor: pointer;
+	font-size: 12px;
+	padding: 2px 6px;
+	border-radius: 4px;
+}
+.ht-btn-delete:hover { color: #ef4444; background: rgba(239,68,68,0.1); }
+
+.ht-btn-close {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--text-muted);
+	font-size: 16px;
+	padding: 4px;
+}
+.ht-btn-close:hover { color: var(--text-normal); }
+
+/* ── Modal ── */
+.ht-modal-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+}
+.ht-modal {
+	background: var(--background-primary);
+	border-radius: 12px;
+	width: 420px;
+	max-width: 95vw;
+	max-height: 85vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.ht-modal--wide {
+	width: 560px;
+}
+.ht-modal-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 18px 12px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+.ht-modal-header h3 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 700;
+}
+.ht-modal-footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	padding: 12px 18px;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+/* ── Search ── */
+.ht-search {
+	margin: 10px 16px 6px;
+	padding: 8px 12px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	background: var(--background-secondary);
+	color: var(--text-normal);
+	font-size: 13px;
+	outline: none;
+	width: calc(100% - 32px);
+	box-sizing: border-box;
+}
+.ht-search:focus { border-color: var(--interactive-accent); }
+
+/* ── Drink list ── */
+.ht-drink-list {
+	flex: 1;
+	overflow-y: auto;
+	padding: 6px 10px;
+}
+.ht-drink-category {
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--text-muted);
+	padding: 8px 6px 4px;
+}
+.ht-drink-option {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: 1px solid transparent;
+	border-radius: 7px;
+	padding: 7px 10px;
+	cursor: pointer;
+	margin-bottom: 2px;
+	color: var(--text-normal);
+}
+.ht-drink-option:hover {
+	background: var(--background-secondary);
+}
+.ht-drink-option--selected {
+	background: rgba(var(--interactive-accent-rgb, 74,108,247), 0.12);
+	border-color: var(--interactive-accent);
+}
+.ht-drink-option-name {
+	font-weight: 600;
+	font-size: 13px;
+}
+.ht-drink-option-meta {
+	font-size: 11px;
+	color: var(--text-muted);
+	margin-top: 1px;
+}
+
+/* ── Amount row ── */
+.ht-amount-row {
+	padding: 10px 16px;
+	border-top: 1px solid var(--background-modifier-border);
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.ht-amount-label {
+	font-size: 13px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+.ht-amount-controls {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-left: auto;
+}
+.ht-amount-input {
+	width: 70px;
+	text-align: center;
+	padding: 6px 8px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	background: var(--background-secondary);
+	color: var(--text-normal);
+	font-size: 14px;
+}
+
+/* ── Manage modal ── */
+.ht-manage-section {
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	overflow-y: auto;
+	max-height: 260px;
+}
+.ht-manage-section:last-of-type { border-bottom: none; }
+.ht-manage-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-weight: 700;
+	font-size: 13px;
+	margin-bottom: 8px;
+}
+
+/* ── Form ── */
+.ht-form {
+	background: var(--background-secondary);
+	border-radius: 8px;
+	padding: 12px;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.ht-form-row {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+.ht-form-row label {
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--text-muted);
+}
+.ht-input {
+	padding: 6px 10px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	background: var(--background-primary);
+	color: var(--text-normal);
+	font-size: 13px;
+}
+.ht-input:focus { border-color: var(--interactive-accent); outline: none; }
+.ht-hint {
+	font-weight: 400;
+	font-size: 11px;
+	color: var(--text-faint);
+}
+.ht-form-actions {
+	display: flex;
+	justify-content: flex-end;
+}
+.ht-error {
+	color: #ef4444;
+	font-size: 12px;
+}
+
+/* ── Built-in list ── */
+.ht-builtin-list {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+.ht-builtin-row {
+	display: flex;
+	flex-direction: column;
+	padding: 5px 0;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+.ht-builtin-row:last-child { border-bottom: none; }
+.ht-builtin-name {
+	font-weight: 600;
+	font-size: 13px;
+}
+.ht-builtin-meta {
+	font-size: 11px;
+	color: var(--text-muted);
+}
+
+/* ── Empty state ── */
+.ht-empty {
+	color: var(--text-muted);
+	font-size: 13px;
+	text-align: center;
+	padding: 20px 0;
+}

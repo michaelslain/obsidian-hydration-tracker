@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "templateId": "diet_cola",
+      "name": "Diet Cola",
+      "category": "soda",
+      "amount_floz": 12,
+      "hydrationFactor": 0.7,
+      "caffeinePerServing_mg": 46,
+      "sugarPerServing_g": 0,
+      "timestamp": "2026-03-06T23:01:39.638Z",
+      "date": "2026-03-06",
+      "id": "f6a531ae-9b0e-4aae-b9aa-dda22a7c999f"
+    },
+    {
+      "templateId": "diet_cola",
+      "name": "Diet Cola",
+      "category": "soda",
+      "amount_floz": 12,
+      "hydrationFactor": 0.7,
+      "caffeinePerServing_mg": 46,
+      "sugarPerServing_g": 0,
+      "timestamp": "2026-03-06T23:02:18.445Z",
+      "date": "2026-03-05",
+      "id": "3e64bc60-af0c-40d1-9f3f-da8037018432"
+    },
+    {
+      "templateId": "flavored_kefir",
+      "name": "Flavored Kefir",
+      "category": "milk",
+      "amount_floz": 8,
+      "hydrationFactor": 0.85,
+      "caffeinePerServing_mg": 0,
+      "sugarPerServing_g": 18,
+      "timestamp": "2026-03-06T23:02:57.137Z",
+      "date": "2026-03-06",
+      "id": "90a61ebf-5ecd-4a9d-b0e5-5679c81e15fd"
+    },
+    {
+      "templateId": "water",
+      "name": "Water",
+      "category": "water",
+      "amount_floz": 32,
+      "hydrationFactor": 1,
+      "caffeinePerServing_mg": 0,
+      "sugarPerServing_g": 0,
+      "timestamp": "2026-03-06T23:03:11.314Z",
+      "date": "2026-03-06",
+      "id": "3845d817-cff0-4ff8-826c-fcb8c306826f"
+    },
+    {
+      "templateId": "water",
+      "name": "Water",
+      "category": "water",
+      "amount_floz": 32,
+      "hydrationFactor": 1,
+      "caffeinePerServing_mg": 0,
+      "sugarPerServing_g": 0,
+      "timestamp": "2026-03-06T23:03:24.513Z",
+      "date": "2026-03-06",
+      "id": "30c0d43f-2e50-418f-ac0f-5cadd8f7e6e1"
+    },
+    {
+      "templateId": "diet_cola",
+      "name": "Diet Cola",
+      "category": "soda",
+      "amount_floz": 12,
+      "hydrationFactor": 0.7,
+      "caffeinePerServing_mg": 46,
+      "sugarPerServing_g": 0,
+      "timestamp": "2026-03-06T23:03:37.475Z",
+      "date": "2026-03-06",
+      "id": "57e80009-8343-4be7-8ab7-6b545cbac3d8"
+    }
+  ]
+}

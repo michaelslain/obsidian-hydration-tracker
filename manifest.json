@@ -1,0 +1,10 @@
+{
+	"id": "hydration-tracker",
+	"name": "Hydration Tracker",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Track daily hydration, caffeine, and sugar intake with a full drink database.",
+	"author": "michaelslain",
+	"authorUrl": "",
+	"isDesktopOnly": false
+}
