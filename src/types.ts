@@ -98,6 +98,12 @@ export const BUILT_IN_DRINKS: DrinkTemplate[] = [
 	{ id: 'espresso', name: 'Espresso', category: 'coffee', hydrationFactor: 0.8, caffeinePerServing_mg: 63, sugarPerServing_g: 0 },
 	{ id: 'cold_brew', name: 'Cold Brew', category: 'coffee', hydrationFactor: 0.8, caffeinePerServing_mg: 155, sugarPerServing_g: 0 },
 	{ id: 'cappuccino', name: 'Cappuccino', category: 'coffee', hydrationFactor: 0.8, caffeinePerServing_mg: 75, sugarPerServing_g: 8 },
+	{ id: 'americano', name: 'Americano', category: 'coffee', hydrationFactor: 0.8, caffeinePerServing_mg: 94, sugarPerServing_g: 0 },
+	{ id: 'flat_white', name: 'Flat White', category: 'coffee', hydrationFactor: 0.8, caffeinePerServing_mg: 130, sugarPerServing_g: 1 },
+	{ id: 'macchiato', name: 'Macchiato', category: 'coffee', hydrationFactor: 0.8, caffeinePerServing_mg: 63, sugarPerServing_g: 5 },
+	{ id: 'mocha', name: 'Mocha', category: 'coffee', hydrationFactor: 0.75, caffeinePerServing_mg: 95, sugarPerServing_g: 25 },
+	{ id: 'iced_coffee', name: 'Iced Coffee', category: 'coffee', hydrationFactor: 0.8, caffeinePerServing_mg: 95, sugarPerServing_g: 5 },
+	{ id: 'french_press', name: 'French Press', category: 'coffee', hydrationFactor: 0.8, caffeinePerServing_mg: 107, sugarPerServing_g: 0 },
 	// Tea
 	{ id: 'green_tea', name: 'Green Tea', category: 'tea', hydrationFactor: 0.9, caffeinePerServing_mg: 28, sugarPerServing_g: 0 },
 	{ id: 'black_tea', name: 'Black Tea', category: 'tea', hydrationFactor: 0.9, caffeinePerServing_mg: 47, sugarPerServing_g: 0 },

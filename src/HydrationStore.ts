@@ -1,75 +1,59 @@
-import { App, normalizePath } from 'obsidian'
+import { Plugin } from 'obsidian'
 import { DrinkEntry, DrinkTemplate, BUILT_IN_DRINKS } from './types'
 import { todayEntries, allTemplates, viewDate } from './state'
 
-const ENTRIES_PATH = normalizePath('.obsidian/plugins/hydration-tracker/entries.json')
-const TEMPLATES_PATH = normalizePath('.obsidian/plugins/hydration-tracker/templates.json')
-
-interface EntriesFile {
-	entries: DrinkEntry[]
-}
-
-interface TemplatesFile {
-	customTemplates: DrinkTemplate[]
-}
-
 export class HydrationStore {
-	private app: App
+	private plugin: Plugin
 	private entries: DrinkEntry[] = []
 	private customTemplates: DrinkTemplate[] = []
 
-	constructor(app: App) {
-		this.app = app
+	constructor(plugin: Plugin) {
+		this.plugin = plugin
 	}
 
 	async load(): Promise<void> {
-		await this.loadEntries()
-		await this.loadTemplates()
-	}
+		const data = (await this.plugin.loadData()) ?? {}
+		this.entries = data.entries ?? []
+		this.customTemplates = data.customTemplates ?? []
 
-	private async loadEntries(): Promise<void> {
-		try {
-			const raw = await this.app.vault.adapter.read(ENTRIES_PATH)
-			const file: EntriesFile = JSON.parse(raw)
-			this.entries = file.entries ?? []
-		} catch {
-			this.entries = []
+		// Migrate from old separate files if needed
+		if (this.entries.length === 0) {
+			try {
+				const raw = await this.plugin.app.vault.adapter.read(
+					'.obsidian/plugins/hydration-tracker/entries.json',
+				)
+				const file = JSON.parse(raw)
+				if (file.entries?.length) {
+					this.entries = file.entries
+					await this.saveEntries()
+				}
+			} catch {}
 		}
+		if (this.customTemplates.length === 0) {
+			try {
+				const raw = await this.plugin.app.vault.adapter.read(
+					'.obsidian/plugins/hydration-tracker/templates.json',
+				)
+				const file = JSON.parse(raw)
+				if (file.customTemplates?.length) {
+					this.customTemplates = file.customTemplates
+					await this.saveTemplates()
+				}
+			} catch {}
+		}
+
 		this.syncEntriesSignal()
-	}
-
-	private async loadTemplates(): Promise<void> {
-		try {
-			const raw = await this.app.vault.adapter.read(TEMPLATES_PATH)
-			const file: TemplatesFile = JSON.parse(raw)
-			this.customTemplates = file.customTemplates ?? []
-		} catch {
-			this.customTemplates = []
-		}
 		this.syncTemplatesSignal()
 	}
 
 	private async saveEntries(): Promise<void> {
-		await this.ensureDir(ENTRIES_PATH)
-		await this.app.vault.adapter.write(
-			ENTRIES_PATH,
-			JSON.stringify({ entries: this.entries }, null, 2),
-		)
+		const existing = (await this.plugin.loadData()) ?? {}
+		await this.plugin.saveData({ ...existing, entries: this.entries })
 	}
 
 	private async saveTemplates(): Promise<void> {
-		await this.ensureDir(TEMPLATES_PATH)
-		await this.app.vault.adapter.write(
-			TEMPLATES_PATH,
-			JSON.stringify({ customTemplates: this.customTemplates }, null, 2),
-		)
-	}
-
-	private async ensureDir(path: string): Promise<void> {
-		const dir = path.split('/').slice(0, -1).join('/')
-		if (dir && !(await this.app.vault.adapter.exists(dir))) {
-			await this.app.vault.adapter.mkdir(dir)
-		}
+		const existing = (await this.plugin.loadData()) ?? {}
+		await this.plugin.saveData({ ...existing, customTemplates: this.customTemplates })
 	}
 
 	private syncEntriesSignal(): void {

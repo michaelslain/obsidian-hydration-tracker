@@ -12,7 +12,7 @@ export default class HydrationPlugin extends Plugin {
 	async onload() {
 		await this.loadSettings()
 
-		this.store = new HydrationStore(this.app)
+		this.store = new HydrationStore(this)
 		this.registerView(
 			HYDRATION_VIEW_TYPE,
 			leaf => new HydrationView(leaf, this.store),
@@ -36,7 +36,8 @@ export default class HydrationPlugin extends Plugin {
 	}
 
 	async saveSettings() {
-		await this.saveData(this.settings)
+		const existing = (await this.loadData()) ?? {}
+		await this.saveData({ ...existing, ...this.settings })
 		settings.value = { ...this.settings }
 	}
 
